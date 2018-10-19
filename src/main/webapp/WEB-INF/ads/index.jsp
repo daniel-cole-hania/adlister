@@ -16,7 +16,7 @@
         <div class="col-md-6">
             <h2><a href="/show?id=${ad.id}"> ${ad.title} </a></h2>
 
-            <p>${ad.description.substring(0,50)}</p>
+            <%--<p>${ad.description.substring(0,50)}</p>--%>
         </div>
     </c:forEach>
 </div>
