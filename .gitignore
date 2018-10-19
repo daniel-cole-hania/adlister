@@ -13,6 +13,7 @@ buildNumber.properties
 
 .DS_Store
 *.iml
-target/
+./target/
+/Users/kohlburgz/Workspace/adlister/target/*
 .idea/
 ./src/main/java/comgit.codeup.adlister/dao/Config.java
