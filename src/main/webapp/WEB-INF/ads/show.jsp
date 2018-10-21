@@ -9,11 +9,16 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
-    <h1><c:out value="${ad.title}" /></h1>
-
+    <div class="col-md-6">
+        <h1><c:out value="${ad.title}" /></h1>
+        <h4><c:out value="${ad.dateCreated}" /></h4>
+        <p><c:out value="${ad.description}" /></p>
+    </div>
 
     <div class="col-md-6">
-
+        <h1>Contact:</h1>
+        <h2><c:out value="${user.username}" /></h2>
+        <h3><c:out value="${user.email}" /></h3>
     </div>
 </div>
 </body>
