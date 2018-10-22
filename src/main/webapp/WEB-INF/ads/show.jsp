@@ -13,6 +13,11 @@
         <h1><c:out value="${ad.title}" /></h1>
         <h4><c:out value="${ad.dateCreated}" /></h4>
         <p><c:out value="${ad.description}" /></p>
+        <aside class="row">
+            <h5 class="col"><a href="/ads/edit?id=${ad.id}">Edit</a></h5>
+            <h5 class="col"><a href="/ads/delete?id=${ad.id}">Delete</a></h5>
+        </aside>
+
     </div>
 
     <div class="col-md-6">
