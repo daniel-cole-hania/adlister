@@ -11,4 +11,5 @@ public interface Ads {
     Long insert(Ad ad);
     Ad findAdByID(Long id);
     List<Ad> findAllAdsByKeyword(String keyWord);
+    List<Ad>findAllAdsUserId(Long userId);
 }
