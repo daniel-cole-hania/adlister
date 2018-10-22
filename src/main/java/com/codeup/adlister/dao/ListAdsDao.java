@@ -59,4 +59,5 @@ public class ListAdsDao implements Ads {
         return null;
     }
     public List<Ad> findAllAdsByKeyword(String keyWord){return null;}
+    public List<Ad> findAllAdsUserId(Long userId) {return null;}
 }
