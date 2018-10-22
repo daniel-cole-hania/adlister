@@ -5,15 +5,11 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
 
-        <ul class="nav navbar-nav navbar-left">
-            <li>
-                <form class="form-inline" action="/ads">
+                <form action="/ads" class="navbar-form navbar-left form-inline">
                     <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search"
                            value="${search}">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-            </li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
 
             <li><a href="/login">Login</a></li>

@@ -72,19 +72,21 @@ public class MySQLAdsDao implements Ads {
     }
 
 
-    //connecting to db to get ads by searching key word
-    public List<Ad> findAllAdsByKeyword(String keyWord) {
+    //connecting to db to get ads by searching keyword
+    public List<Ad> findAllAdsByKeyword(String keyword) {
         try {
-            String findAd = "select * from ads where title like ?";
-            String searchTermWithWildcards = "%" + keyWord + "%";
+            String findAd = "select * from ads where title like ? or description like ?";
+            String searchTermWithWildcards = "%" + keyword + "%";
 
             PreparedStatement stmt = connection.prepareStatement(findAd);
             stmt.setString(1, searchTermWithWildcards);
+            stmt.setString(2, searchTermWithWildcards);
+
 
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding a ad by id", e);
+            throw new RuntimeException("Error finding a ad by keyword", e);
         }
     }
 
