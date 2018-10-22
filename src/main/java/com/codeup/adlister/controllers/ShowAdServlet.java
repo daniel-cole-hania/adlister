@@ -21,4 +21,12 @@ public class ShowAdServlet extends HttpServlet {
         request.setAttribute("user", adUser);
         request.getRequestDispatcher("/WEB-INF/ads/show.jsp").forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(request.getParameter("title"));
+        System.out.println(request.getParameter("description"));
+        String adID = request.getParameter("id");
+
+        response.sendRedirect("/ads/show?id=" + adID);
+    }
 }
