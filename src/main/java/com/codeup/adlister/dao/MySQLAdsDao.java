@@ -93,10 +93,12 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-                rs.getLong("id"),
-                rs.getLong("user_id"),
-                rs.getString("title"),
-                rs.getString("description")
+            rs.getLong("id"),
+            rs.getLong("user_id"),
+            rs.getString("title"),
+            rs.getString("description"),
+            rs.getString("date_created")
+
         );
     }
 
