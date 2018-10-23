@@ -82,6 +82,27 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public void delete(Long id) {
+        //creating delete statement as string
+        String deleteQuery = "DELETE FROM ads WHERE id = " + id;
+
+        try {
+            //creating statment object with update string
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+
+            //executing update
+            stmt.executeUpdate();
+
+            //console log to confirm update
+            System.out.println("Deleted ad with id " + id + ".");
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
+
+    }
+
+    @Override
     public Ad findAdByID(Long id) {
         try {
             String findAd = "SELECT * FROM ads WHERE id = ?";

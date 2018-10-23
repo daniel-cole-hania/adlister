@@ -13,10 +13,6 @@
         <h1><c:out value="${ad.title}" /></h1>
         <h4><c:out value="${ad.dateCreated}" /></h4>
         <p><c:out value="${ad.description}" /></p>
-        <aside class="row">
-            <h5 class="col"><a href="/ads/edit${ad.id}">Edit</a></h5>
-            <h5 class="col"><a href="/ads/delete${ad.id}">Delete</a></h5>
-        </aside>
 
         <form action="/ads/show?id=${ad.id}" method="POST">
             <div class="form-group">
@@ -28,7 +24,8 @@
                 <textarea id="description" name="description" class="form-control">${ad.description}</textarea>
             </div>
 
-            <input type="submit" class="btn btn-block btn-primary" value="Save">
+            <input type="submit" class="btn btn-primary" name="submit" value="Save">
+            <input type="submit" class="btn btn-primary" name="submit" value="Delete">
 
             <input type="hidden" name="id" value="${ad.id}">
         </form>

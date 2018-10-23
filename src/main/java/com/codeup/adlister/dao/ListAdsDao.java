@@ -62,4 +62,8 @@ public class ListAdsDao implements Ads {
     public void update(Long id, String newTitle, String newDescription) {
 
     }
+
+    public void delete(Long id) {
+
+    }
 }
