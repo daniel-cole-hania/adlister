@@ -1,5 +1,7 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.MySQLCategoryAdLinkDao;
+import com.codeup.adlister.dao.Config;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.Category;
@@ -31,13 +33,29 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         User user = (User) request.getSession().getAttribute("user");
+
         System.out.println("ad created by: " + user.getId() + ", " + user.getUsername());
         Ad ad = new Ad(
                 user.getId(),
                 request.getParameter("title"),
                 request.getParameter("description")
         );
-        DaoFactory.getAdsDao().insert(ad);
+        ad.setId(DaoFactory.getAdsDao().insert(ad));
+
+
+
+        MySQLCategoryAdLinkDao mySQLCategoryAdLinkDao = new MySQLCategoryAdLinkDao(new Config());
+        Long categoryID = Long.parseLong(request.getParameter("id"));  //something is wrong here. what?
+
+        System.out.println(categoryID);
+
+        Category currCat = DaoFactory.getCategoriesDao().findByCategoryID(categoryID);
+        System.out.println(currCat.getName());
+
+        System.out.println(currCat.getId());
+        System.out.println(ad.getId());
+        mySQLCategoryAdLinkDao.addAdToCategory(ad, currCat);
+
         response.sendRedirect("/ads");
     }
-}
+}                                                               

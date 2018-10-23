@@ -22,8 +22,10 @@
             <h5>Choose categories</h5>
             <div class="form-check form-check-inline">
                 <c:forEach items="${categories}" var="category">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1"><c:out value="${category.name}"/></label>
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="id" value="${category.id}">
+                    <%--<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="${category.id}">--%>
+
+                    <label class="form-check-label" for="inlineCheckbox1"><c:out value="${category.name}"/></label>
                 </c:forEach>
             </div>
 
