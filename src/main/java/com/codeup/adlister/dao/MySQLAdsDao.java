@@ -17,9 +17,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -99,6 +99,39 @@ public class MySQLAdsDao implements Ads {
     }
 
 
+    //connecting to db to get ads by searching keyword
+    public List<Ad> findAllAdsByKeyword(String keyword) {
+        try {
+            String findAd = "select * from ads where title like ? or description like ?";
+            String searchTermWithWildcards = "%" + keyword + "%";
+
+            PreparedStatement stmt = connection.prepareStatement(findAd);
+            stmt.setString(1, searchTermWithWildcards);
+            stmt.setString(2, searchTermWithWildcards);
+
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a ad by keyword", e);
+        }
+    }
+
+    //finding ads by user id for profile page
+    public List<Ad> findAllAdsUserId(Long user_id) {
+        try {
+            String findAd = "select * from ads where user_id = ?";
+
+            PreparedStatement stmt = connection.prepareStatement(findAd);
+            stmt.setLong(1, user_id);
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ads by this username", e);
+        }
+    }
+
 
     //private utility classes for formatting ads from result sets
     private Ad extractAd(ResultSet rs) throws SQLException {
@@ -108,6 +141,7 @@ public class MySQLAdsDao implements Ads {
             rs.getString("title"),
             rs.getString("description"),
             rs.getString("date_created")
+
         );
     }
 

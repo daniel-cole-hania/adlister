@@ -16,4 +16,6 @@ public interface Ads {
 
     //finds ad in db by ad id
     Ad findAdByID(Long id);
+    List<Ad> findAllAdsByKeyword(String keyWord);
+    List<Ad>findAllAdsUserId(Long userId);
 }
