@@ -23,10 +23,15 @@ public class ShowAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("title"));
-        System.out.println(request.getParameter("description"));
-        String adID = request.getParameter("id");
+        //grabs values from form
+        Long adId = Long.parseLong(request.getParameter("id"));
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
 
-        response.sendRedirect("/ads/show?id=" + adID);
+        //uses values to update ad in db
+        DaoFactory.getAdsDao().update(adId, title, description);
+
+        //sends user back to ad page
+        response.sendRedirect("/ads/show?id=" + adId);
     }
 }

@@ -58,4 +58,8 @@ public class ListAdsDao implements Ads {
     public Ad findAdByID(Long id)  {
         return null;
     }
+
+    public void update(Long id, String newTitle, String newDescription) {
+
+    }
 }
