@@ -55,10 +55,16 @@ public class ListAdsDao implements Ads {
         ));
         return ads;
     }
+  
+    //search functionality 
     public Ad findAdByID(Long id)  {
         return null;
     }
-
+  
+    public List<Ad> findAllAdsByKeyword(String keyWord){return null;}
+    public List<Ad> findAllAdsUserId(Long userId) {return null;}
+  
+    //update in db method
     public void update(Long id, String newTitle, String newDescription) {
 
     }
@@ -66,4 +72,5 @@ public class ListAdsDao implements Ads {
     public void delete(Long id) {
 
     }
+
 }
