@@ -13,6 +13,23 @@
         <h1><c:out value="${ad.title}" /></h1>
         <h4><c:out value="${ad.dateCreated}" /></h4>
         <p><c:out value="${ad.description}" /></p>
+
+        <form action="/ads/show?id=${ad.id}" method="POST">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" name="title" class="form-control" type="text" value ="${ad.title}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="form-control">${ad.description}</textarea>
+            </div>
+
+            <input type="submit" class="btn btn-primary" name="submit" value="Save">
+            <input type="submit" class="btn btn-primary" name="submit" value="Delete">
+
+            <input type="hidden" name="id" value="${ad.id}">
+        </form>
+
     </div>
 
     <div class="col-md-6">

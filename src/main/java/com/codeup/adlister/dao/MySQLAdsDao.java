@@ -55,6 +55,54 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public void update(Long id, String newTitle, String newDescription) {
+        //creating outline for update statement
+        String updateQuery = "UPDATE ads SET title = ?, description = ? WHERE id = " + id;
+
+        try {
+            //creating statment object with update string
+            PreparedStatement stmt = connection.prepareStatement(updateQuery);
+
+            //safely setting update values with arguments
+            stmt.setString(1, newTitle);
+            stmt.setString(2, newDescription);
+
+            //executing update
+            stmt.executeUpdate();
+
+            //console log to confirm update
+            System.out.println("Updated ad with id " + id + ":");
+            System.out.println("title: " + newTitle);
+            System.out.println("description: " + newDescription);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating ad.", e);
+        }
+
+    }
+
+    @Override
+    public void delete(Long id) {
+        //creating delete statement as string
+        String deleteQuery = "DELETE FROM ads WHERE id = " + id;
+
+        try {
+            //creating statment object with update string
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+
+            //executing update
+            stmt.executeUpdate();
+
+            //console log to confirm update
+            System.out.println("Deleted ad with id " + id + ".");
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
+
+    }
+
+    @Override
     public Ad findAdByID(Long id) {
         try {
             String findAd = "SELECT * FROM ads WHERE id = ?";
@@ -90,7 +138,23 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    //finding ads by user id for profile page
+    public List<Ad> findAllAdsUserId(Long user_id) {
+        try {
+            String findAd = "select * from ads where user_id = ?";
 
+            PreparedStatement stmt = connection.prepareStatement(findAd);
+            stmt.setLong(1, user_id);
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ads by this username", e);
+        }
+    }
+
+
+    //private utility classes for formatting ads from result sets
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
