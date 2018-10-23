@@ -21,4 +21,17 @@ public class ShowAdServlet extends HttpServlet {
         request.setAttribute("user", adUser);
         request.getRequestDispatcher("/WEB-INF/ads/show.jsp").forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //grabs values from form
+        Long adId = Long.parseLong(request.getParameter("id"));
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+
+        //uses values to update ad in db
+        DaoFactory.getAdsDao().update(adId, title, description);
+
+        //sends user back to ad page
+        response.sendRedirect("/ads/show?id=" + adId);
+    }
 }
