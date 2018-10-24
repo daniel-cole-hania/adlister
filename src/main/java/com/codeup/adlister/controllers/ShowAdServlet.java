@@ -23,15 +23,32 @@ public class ShowAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //grabs values from form
-        Long adId = Long.parseLong(request.getParameter("id"));
-        String title = request.getParameter("title");
-        String description = request.getParameter("description");
+        //finds which submit button clicked, edit or delete
+        String buttonClicked  = request.getParameter("submit");
 
-        //uses values to update ad in db
-        DaoFactory.getAdsDao().update(adId, title, description);
+        if (buttonClicked.equals("Save")) {
+            //grabs values from form
+            Long adId = Long.parseLong(request.getParameter("id"));
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
 
-        //sends user back to ad page
-        response.sendRedirect("/ads/show?id=" + adId);
+            //uses values to update ad in db
+            DaoFactory.getAdsDao().update(adId, title, description);
+
+            //sends user back to ad page
+            response.sendRedirect("/ads/show?id=" + adId);
+        }
+
+        if (buttonClicked.equals("Delete")) {
+            //grabs ad id from form
+            Long adId = Long.parseLong(request.getParameter("id"));
+
+            //deletes ad in db
+            DaoFactory.getAdsDao().delete(adId);
+
+            //sends user back to their profile page
+            response.sendRedirect("/profile");
+
+        }
     }
 }

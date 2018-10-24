@@ -14,8 +14,12 @@ public interface Ads {
     //update ad in db by ad id
     void update(Long id, String newTitle, String newDescription);
 
+    //deletes ad in db by ad id
+    void delete(Long id);
+
     //finds ad in db by ad id
     Ad findAdByID(Long id);
+
     List<Ad> findAllAdsByKeyword(String keyWord);
     List<Ad>findAllAdsUserId(Long userId);
 }

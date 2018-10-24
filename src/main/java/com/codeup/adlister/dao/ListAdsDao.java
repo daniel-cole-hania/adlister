@@ -69,4 +69,8 @@ public class ListAdsDao implements Ads {
 
     }
 
+    public void delete(Long id) {
+
+    }
+
 }
