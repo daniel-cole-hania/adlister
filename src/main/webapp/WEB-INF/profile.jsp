@@ -24,6 +24,8 @@
     </div>
 
     <a href="editProfile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Profile</a>
+    <a href="deleteProfile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete Profile</a>
+
 </div>
 
 </body>

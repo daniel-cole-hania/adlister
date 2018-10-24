@@ -26,11 +26,11 @@ public class EditProfileServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmedPassword = request.getParameter("confirm_password");
-        
+
         User user = (User) request.getSession().getAttribute("user");
         DaoFactory.getUsersDao().editUsername(username, user.getId());
         DaoFactory.getUsersDao().editEmail(email, user.getId());
-        
+
         if (confirmedPassword.equals(password)) {
             DaoFactory.getUsersDao().editPassword(password, user.getId());
             response.sendRedirect("/profile");
