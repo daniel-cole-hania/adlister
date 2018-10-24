@@ -8,5 +8,6 @@ public interface Users {
     User findByUsername(String username);
     User findByUserID(Long userID);
     Long insert(User user);
-
+    void editEmail(String email, long id);
+    void editPassword(String password, long id);
 }

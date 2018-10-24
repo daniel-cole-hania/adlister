@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
+import com.codeup.adlister.util.Password;
 import com.mysql.cj.jdbc.Driver;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -13,9 +14,9 @@ public class MySQLUsersDao implements Users {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -66,18 +67,43 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error creating new user", e);
         }
     }
-    
+
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password")
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password")
         );
+    }
+
+
+    public void editEmail(String email, long id) {
+        String query = "update users set email = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, email);
+            stmt.setLong(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error trying to edit email.", e);
+        }
+    }
+
+    public void editPassword(String password, long id) {
+        String query = "update users set password = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, Password.hash(password));
+            stmt.setLong(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error trying to edit password.", e);
+        }
     }
 
 }
