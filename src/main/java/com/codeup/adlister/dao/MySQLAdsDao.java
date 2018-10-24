@@ -156,14 +156,16 @@ public class MySQLAdsDao implements Ads {
 
     //private utility classes for formatting ads from result sets
     private Ad extractAd(ResultSet rs) throws SQLException {
-        return new Ad(
+        Ad newAd = new Ad(
             rs.getLong("id"),
             rs.getLong("user_id"),
             rs.getString("title"),
             rs.getString("description"),
             rs.getString("date_created")
-
         );
+        newAd.setCategories(DaoFactory.getMySQLCategoryAdLinkDao().findCategories(newAd));
+        return newAd;
+
     }
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
