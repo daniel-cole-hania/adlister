@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "controllers.EditProfileServlet", urlPatterns = "/editProfile")
 public class EditProfileServlet extends HttpServlet {
@@ -22,7 +21,7 @@ public class EditProfileServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+            throws IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmedPassword = request.getParameter("confirm_password");
@@ -32,19 +31,10 @@ public class EditProfileServlet extends HttpServlet {
 
         user = DaoFactory.getUsersDao().findByUsername(user.getUsername());
         request.getSession().setAttribute("user", user);
-        response.sendRedirect("/profile");
 
         if (confirmedPassword.equals(password)) {
             DaoFactory.getUsersDao().editPassword(password, user.getId());
             response.sendRedirect("/profile");
         }
-
-
-//        if (!confirmedPassword.equals(password)) {
-//            request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, response);
-//        } else {
-//            DaoFactory.getUsersDao().editPassword(password, user.getId());
-//            response.sendRedirect("/profile");
-//        }
     }
 }

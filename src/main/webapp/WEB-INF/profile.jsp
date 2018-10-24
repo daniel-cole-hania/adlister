@@ -20,16 +20,7 @@
             </div>
         </c:forEach>
         </div>
-
-        <div class="col-4 ">
-            <div class="card">
-                <h5 class="card-header">Edit your profile</h5>
-                <div class="card-body">
-                    
-                    <a href="#" class="btn btn-primary">Submit</a>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 

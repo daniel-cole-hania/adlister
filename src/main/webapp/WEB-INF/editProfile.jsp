@@ -11,10 +11,15 @@
 
 <div class="container">
     <div id="content">
+        <h3>Update your account</h3>
         <form action="/editProfile" method="POST">
             <div class="form-group">
+                <label for="username">username</label>
+                <input id="username" name="username" class="form-control" type="text" value="${username}">
+            </div>
+            <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text">
+                <input id="email" name="email" class="form-control" type="text" value="${email}">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
