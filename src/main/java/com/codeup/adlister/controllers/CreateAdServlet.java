@@ -47,25 +47,17 @@ public class CreateAdServlet extends HttpServlet {
         MySQLCategoryAdLinkDao mySQLCategoryAdLinkDao = new MySQLCategoryAdLinkDao(new Config());
 
         Long categoryID = Long.parseLong(request.getParameter("id"));
-        //WHAT DOES THIS RETURN?????? all ids selected? or just last id?
-        //String[] categoryIDS = request.getParameterValues("id");
-
-        //pulls out data structure to hold multiple ids
-        //from check boxes
+        String[] categoryIDS = request.getParameterValues("id");
+        System.out.println(categoryIDS);
 
         System.out.println(categoryID);
 
-        //if id has multiple ids
-        //call find category and addAdToCategory for each id
-
-        //for (int i = 0; i < categoryIDS.length; i++) {
-        Category currCat = DaoFactory.getCategoriesDao().findByCategoryID(categoryID);
-        //Category currCat = DaoFactory.getCategoriesDao().findByCategoryID(categoryIDS[i]);
+        for (int i = 0; i < categoryIDS.length; i++) {
+        Category currCat = DaoFactory.getCategoriesDao().findByCategoryID(Long.parseLong(categoryIDS[i]));
 
         mySQLCategoryAdLinkDao.addAdToCategory(ad, currCat);
-        //mySQLCategoryAdLinkDao.addAdToCategory(ad, currCat);
 
-        // }
+         }
         response.sendRedirect("/ads");
     }
 }                                                               
