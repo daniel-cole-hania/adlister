@@ -82,6 +82,19 @@ public class MySQLUsersDao implements Users {
     }
 
 
+    public void editUsername(String username, long id) {
+        String query = "update users set username = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, username);
+            stmt.setLong(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error trying to edit username.", e);
+        }
+    }
+
+
     public void editEmail(String email, long id) {
         String query = "update users set email = ? where id = ?";
         try {

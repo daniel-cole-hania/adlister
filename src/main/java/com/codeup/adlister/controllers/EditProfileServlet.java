@@ -22,16 +22,15 @@ public class EditProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
+        String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmedPassword = request.getParameter("confirm_password");
-
+        
         User user = (User) request.getSession().getAttribute("user");
+        DaoFactory.getUsersDao().editUsername(username, user.getId());
         DaoFactory.getUsersDao().editEmail(email, user.getId());
-
-        user = DaoFactory.getUsersDao().findByUsername(user.getUsername());
-        request.getSession().setAttribute("user", user);
-
+        
         if (confirmedPassword.equals(password)) {
             DaoFactory.getUsersDao().editPassword(password, user.getId());
             response.sendRedirect("/profile");
