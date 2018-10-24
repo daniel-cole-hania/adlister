@@ -5,7 +5,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Ads"/>
+        <jsp:param name="title" value="Adlister ~ All Ads"/>
     </jsp:include>
 </head>
 <body>
@@ -15,21 +15,32 @@
 
     <c:choose>
         <c:when test="${not empty search}">
-            <h1>Here is what we found for you!</h1>
+            <h1 class="page-heading text-warning text-center">Here is what we found:</h1>
         </c:when>
         <c:otherwise>
-            <h1>Here Are all the ads!</h1>
+            <h1 class="page-heading text-warning text-center">All listed ads:</h1>
         </c:otherwise>
     </c:choose>
 
+    <main class="card-columns">
+        <c:forEach var="ad" items="${ads}">
+            <article class="card border-warning">
+                <div class="card-body">
+                    <h4 class="card-title text-center">
+                        <a class="text-success" href="/ads/show?id=${ad.id}">
+                            ${ad.title}
+                        </a>
+                    </h4>
+                    <h6 class="card-subtitle mb-2 text-muted normie">${ad.dateCreated}</h6>
+                    <p class="card-text normie">${fn:substring(ad.description, 0, 50)}...</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item categories">${ad.categories}</li>
 
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2><a href="/ads/show?id=${ad.id}">${ad.title}</a></h2>
-            <p>${fn:substring(ad.description, 0, 50)}...</p>
-        </div>
-    </c:forEach>
+                </ul>
+            </article>
+        </c:forEach>
+    </main>
 </div>
-
 </body>
 </html>

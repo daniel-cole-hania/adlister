@@ -3,10 +3,12 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Create a new Ad" />
+        <jsp:param name="title" value="Adlister ~ Create an Ad" />
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
