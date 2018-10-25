@@ -42,7 +42,7 @@
             <div class="card border-warning">
                 <div class="card-body">
                     <h5 class="card-header text-white bg-dark">What forms of payment are accepted?</h5>
-                    <p class="card-text">It is up to the seller to determine what payment methods are accepted, although we recommend that all sellers speak with Lucy since she has the most business experience.</p>
+                    <p class="card-text">It's up to the seller to determine what payment methods are accepted, but we recommend that all sellers speak with Lucy since she has the most business experience.</p>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
         <div class="col-sm-6 p-1">
             <div class="card border-warning">
                 <div class="card-body">
-                    <h5 class="card-header text-white bg-dark">What are the limitations to what I can sell?</h5>
+                    <h5 class="card-header text-white bg-dark">Is there anything that I cannot sell?</h5>
                     <p class="card-text">Categories have been created to cover a broad variety of goods and services to sell. Currently, Linus' blanket is the only item that cannot be listed for sale.</p>
                 </div>
             </div>
