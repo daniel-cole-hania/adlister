@@ -7,6 +7,7 @@
     </jsp:include>
 </head>
 <body>
+
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <h1 class="page-heading text-warning text-center">Log In</h1>
 

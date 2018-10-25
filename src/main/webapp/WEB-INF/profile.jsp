@@ -8,6 +8,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
 <h1 class="page-heading text-warning text-center">Welcome, ${sessionScope.user.username}!</h1>
 
 <main class="container mx-auto">
@@ -15,6 +16,8 @@
         <div class="card-body">
             <h2 class="card-title text-success">Your Info:</h2>
             <p class="card-text normie">${sessionScope.user.email}</p>
+              <a href="editProfile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Profile</a>
+    <a href="deleteProfile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete Profile</a>
         </div>
     </article>
     <article class="card border-warning w-75 mx-auto mt-3">
@@ -28,5 +31,6 @@
         </div>
     </article>
 </main>
+
 </body>
 </html>
