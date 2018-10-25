@@ -3,35 +3,45 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Edit Your Profile"/>
+        <jsp:param name="title" value="Edit Your Profile on Grief Saver"/>
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
-<div class="container">
-    <div id="content">
-        <h3>Update your account</h3>
-        <form action="/editProfile" method="POST">
-            <div class="form-group">
-                <label for="username">username</label>
-                <input id="username" name="username" class="form-control" type="text" value="${user.username}">
+<h1 class="page-heading text-warning text-center">Edit Your Profile</h1>
+
+<div class="container row mx-auto">
+    <%--section to display user info--%>
+    <section class="col">
+        <article class="card border-warning">
+            <div class="card-body">
+                <h2 class="card-title text-success">Enter any details you want to change:</h2>
+                <h5 class="card-title">You will need to enter and confirm your old or new password.</h5>
+                <hr>
+                <form action="/editProfile" method="POST">
+                    <div class="form-group">
+                        <label for="username">username</label>
+                        <input id="username" name="username" class="form-control" type="text" value="${user.username}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" class="form-control" type="text" value="${user.email}">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" class="form-control" type="password"
+                               value="${user.password}">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input id="confirm_password" name="confirm_password" class="form-control" type="password">
+                    </div>
+                    <input type="submit" class="btn btn-warning btn-block nuts" value="Update Profile">
+                </form>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text" value="${user.email}">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password" value="${user.password}">
-            </div>
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" class="form-control" type="password">
-            </div>
-            <input type="submit" class="btn btn-primary btn-block">
-        </form>
-    </div>
+        </article>
+    </section>
 </div>
 </body>
 </html>
