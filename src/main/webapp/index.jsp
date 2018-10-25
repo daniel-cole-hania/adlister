@@ -3,13 +3,13 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="AdLister ~ Home" />
+        <jsp:param name="title" value="Home - Adlister" />
     </jsp:include>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container text-center">
-        <h1 class="text-warning page-heading">AdLister</h1>
+        <h1 class="text-warning index-heading">Grief Saver</h1>
         <h3>The future of connecting people to what they want.</h3>
         <hr class="hr-4">
         <main class="w-75 mx-auto pt-3">

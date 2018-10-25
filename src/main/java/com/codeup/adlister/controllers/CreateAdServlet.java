@@ -23,6 +23,7 @@ public class CreateAdServlet extends HttpServlet {
         session.setAttribute("currentPage", "/ads/create");
 
         if (request.getSession().getAttribute("user") == null) {
+            request.getSession().setAttribute("message", "No matter how hard you try, you can't create an ad if you're not logged in.");
             response.sendRedirect("/login");
             return;
         }
@@ -36,26 +37,53 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        //grabbing info from post request
         User user = (User) request.getSession().getAttribute("user");
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+
+        //saving form info to session
+        request.getSession().setAttribute("title", title);
+        request.getSession().setAttribute("description", description);
+
+
+        // validate input
+        if (title.isEmpty()) {
+            request.getSession().setAttribute("message", "Your ad needs a title. Five cents, please.");
+            response.sendRedirect("/ads/create");
+            return;
+        }
+
+        if (description.isEmpty()) {
+            request.getSession().setAttribute("message", "You're weird, sir! Your ad needs more details.");
+            response.sendRedirect("/ads/create");
+            return;
+        }
 
         System.out.println("ad created by: " + user.getId() + ", " + user.getUsername());
         Ad ad = new Ad(
                 user.getId(),
-                request.getParameter("title"),
-                request.getParameter("description")
+                title,
+                description
         );
-        ad.setId(DaoFactory.getAdsDao().insert(ad));
+
 
 
 
         MySQLCategoryAdLinkDao mySQLCategoryAdLinkDao = new MySQLCategoryAdLinkDao(new Config());
 
-        Long categoryID = Long.parseLong(request.getParameter("id"));
+        String categories = request.getParameter("id");
+        if (categories == null) {
+            request.getSession().setAttribute("message", "You block head, Your ad needs at least <span class=\"normie\">1</span> category.");
+            response.sendRedirect("/ads/create");
+            return;
+        }
+
+//        Long categoryID = Long.parseLong(request.getParameter("id"));
         String[] categoryIDS = request.getParameterValues("id");
-        System.out.println(categoryIDS);
 
-        System.out.println(categoryID);
 
+        ad.setId(DaoFactory.getAdsDao().insert(ad));
         for (int i = 0; i < categoryIDS.length; i++) {
         Category currCat = DaoFactory.getCategoriesDao().findByCategoryID(Long.parseLong(categoryIDS[i]));
 

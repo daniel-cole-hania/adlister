@@ -27,12 +27,15 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
+
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
         HttpSession session = request.getSession();
         String pageName = (String)session.getAttribute("currentPage");
 
         if (user == null) {
+            request.getSession().setAttribute("message", "Rats! That's the wrong email or password.");
+            request.getSession().setAttribute("username", username);
             response.sendRedirect("/login");
             return;
         }
@@ -42,6 +45,8 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user);
             response.sendRedirect(pageName);
         } else {
+            request.getSession().removeAttribute("username");
+            request.getSession().setAttribute("message", "Rats! That's the wrong email or password.");
             response.sendRedirect("/login");
         }
     }
