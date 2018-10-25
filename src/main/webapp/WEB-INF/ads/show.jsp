@@ -3,40 +3,68 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Ads" />
+        <jsp:param name="title" value="Viewing All The Ads"/>
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="container">
-    <div class="col-md-6">
-        <h1><c:out value="${ad.title}" /></h1>
-        <h4><c:out value="${ad.dateCreated}" /></h4>
-        <p><c:out value="${ad.description}" /></p>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<h1 class="page-heading text-warning text-center">${ad.title}</h1>
 
-        <form action="/ads/show?id=${ad.id}" method="POST">
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text" value ="${ad.title}">
+<div class="container row mx-auto">
+
+<%--displays ad--%>
+    <section class="col">
+        <article class="card border-warning">
+            <div class="card-body">
+                <h2 class="card-title text-success">Info:</h2>
+                <h6 class="card-subtitle mb-2 text-muted normie">${ad.dateCreated}</h6>
+                <p class="card-text normie">${ad.description}</p>
             </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control">${ad.description}</textarea>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-danger">${ad.categories}</li>
+
+            </ul>
+        </article>
+
+        <c:if test="${sessionScope.user.id == ad.userId}">
+    <%--form for editing ad--%>
+        <article class="card border-warning my-2">
+            <div class="card-body">
+                <h2 class="card-title text-success">Edit:</h2>
+                <form action="/ads/show?id=${ad.id}" method="POST">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input id="title" name="title" class="form-control normie" type="text" value="${ad.title}">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" class="form-control normie">${ad.description}</textarea>
+                    </div>
+
+                    <input type="submit" class="btn btn-warning" name="submit" value="Save">
+                    <input type="submit" class="btn btn-warning" name="submit" value="Delete">
+
+                    <input type="hidden" name="id" value="${ad.id}">
+                </form>
             </div>
+        </article>
+        </c:if>
 
-            <input type="submit" class="btn btn-primary" name="submit" value="Save">
-            <input type="submit" class="btn btn-primary" name="submit" value="Delete">
 
-            <input type="hidden" name="id" value="${ad.id}">
-        </form>
+    </section>
 
-    </div>
+    <%--section to display user info--%>
+    <section class="col">
+        <article class="card border-warning">
+            <div class="card-body">
+                <h2 class="card-title text-success">Contact:</h2>
+                <h3 class="card-title"><c:out value="${user.username}"/></h3>
 
-    <div class="col-md-6">
-        <h1>Contact:</h1>
-        <h2><c:out value="${user.username}" /></h2>
-        <h3><c:out value="${user.email}" /></h3>
-    </div>
+                <p class="card-text normie"><c:out value="${user.email}"/></p>
+            </div>
+        </article>
+    </section>
 </div>
+
 </body>
 </html>

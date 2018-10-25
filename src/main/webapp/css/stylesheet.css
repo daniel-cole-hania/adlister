@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Peanuts';
+    src:url('Peanuts.ttf.woff') format('woff'),
+    url('Peanuts.ttf.svg#Peanuts') format('svg'),
+    url('Peanuts.ttf.eot'),
+    url('Peanuts.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body {
+    font-family: 'Peanuts';
+    background-color: #c7d8f2;
+}
+
+.page-heading {
+    font-size: 400%;
+    -webkit-text-stroke: 2px black;
+}
+
+.index-heading {
+    font-size: 500%;
+    -webkit-text-stroke: 2px black;
+}
+
+#nav {
+    color: #cef78c;
+}
+
+article {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.normie {
+    font-family: 'Nunito', sans-serif;
+}
+
+.categories {
+    font-size: small;
+}
+
+input {
+    font-family: 'Nunito', sans-serif;
+}
+
+.nuts {
+    font-family: 'Peanuts';
+}
+
+textarea {
+    resize: none;
+    font-family: 'Nunito', sans-serif;
+
+}
