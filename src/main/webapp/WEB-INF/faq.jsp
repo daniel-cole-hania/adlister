@@ -9,58 +9,154 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>FAQ</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="AdLister ~ FAQ" />
+    </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1 class = "text-center">Adlister FAQ</h1>
+    <h1 class = "text-warning page-heading text-center">Adlister FAQ</h1>
 
-    <button id ="toggleButton">Show me the answers</button>
-    <dl class ="listClass">
-        <dt class ="questions">Do I need to register to post an ad?</dt>
-        <dd class ="answers">Yes, although you can view ads without registering you will need to register to respond to an ad and to post an ad. To register, click <a href = "http://localhost:8080/register">here</a>.</a> </dd>
-        <br>
-        <dt class ="questions">How do I create an ad?</dt>
-        <dd class ="answers">Once you are registered, </dd>
-        <br>
-        <dt class ="questions">What forms of payment are accepted?</dt>
-        <dd class ="answers">It is up to the seller to determine what payment methods are accepted, although we recommend that all sellers speak with Lucy since she has the most business experience.</dd>
-        <br>
-        <dt class ="questions">How much does it cost to post an ad?</dt>
-        <dd class ="answers">Currently, there is no cost to posting an ad.</dd>
-        <br>
-        <dt class ="questions">How will I know if an item is still available?</dt>
-        <dd class ="answers">Once an item or service is no longer available, we ask that the seller DELETE the post from Adlister to avoid any confusion.</dd>
-        <br>
-        <dt class ="questions">What are the limitations to what I can sell?</dt>
-        <dd class ="answers">Categories have been created to cover a broad variety of goods and services to sell. Currently, Linus' blanket is the only item that cannot be listed for sale.</dd>
-        <br>
-        <dt class ="questions">What if I make a mistake when I post an ad?</dt>
-        <dd class ="answers">Once you post an ad, you will be able to edit the ad if you see that you made a mistake. Users are also able to delete an ad, and should delete the ad once the item or service is no longer available.</dd>
-        <br>
-        <dt class ="questions">Can I meet Snoopy?</dt>
-        <dd class ="answers">Snoopy is currently working on his great American novel, and may not be available for photo ops or autographs. An exception might be made for any buyer or seller that brings a full bowl of dog food, however.</dd>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-header text-white bg-dark">Do I need to register to post an ad?</h5>
+                    <p class="card-text">Yes, although you can view ads without registering you will need to register to respond to an ad and to post an ad. To register, click <a href = "http://localhost:8080/register">here</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-header text-white bg-dark">How do I create an ad?</h5>
+                    <p class="card-text">Once you are registered, you can click on Create to create an ad. You'll have a title, a description, and will be able to select the category(ies) that best fit your item or service..</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <<div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-header text-white bg-dark">What forms of payment are accepted?</h5>
+                    <p class="card-text">It is up to the seller to determine what payment methods are accepted, although we recommend that all sellers speak with Lucy since she has the most business experience.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-header text-white bg-dark">How much does it cost to post an ad?</h5>
+                    <p class="card-text">It is up to the seller to determine what payment methods are accepted, although we recommend that all sellers speak with Lucy since she has the most business experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-header text-white bg-dark">How will I know if an item is still available?</h5>
+                    <p class="card-text">Once an item or service is no longer available, we ask that the seller DELETE the post from Adlister to avoid any confusion.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-header text-white bg-dark">What are the limitations to what I can sell?</h5>
+                    <p class="card-text">Categories have been created to cover a broad variety of goods and services to sell. Currently, Linus' blanket is the only item that cannot be listed for sale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-header text-white bg-dark">What if I make a mistake when I post an ad?</h5>
+                    <p class="card-text">Once you post an ad, you will be able to edit the ad if you see that you made a mistake. Users are also able to delete an ad, and should delete the ad once the item or service is no longer available.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-header text-white bg-dark">Can I meet Snoopy?</h5>
+                    <p class="card-text">Snoopy is currently working on his great American novel, and may not be available for photo ops or autographs. An exception might be made for any buyer or seller that brings a full bowl of dog food, however.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<%--<div class="card-columns" style="width: 150rem;">--%>
+    <%--<article class="card border-warning">--%>
+        <%--<div class="card-header">Do I need to register to post an ad?</div>--%>
+    <%--<div class="card-body">--%>
+        <%--Yes, although you can view ads without registering you will need to register to respond to an ad and to post an ad. To register, click <a href = "http://localhost:8080/register">here</a>--%>
+    <%--</div>--%>
+    <%--</div>--%>
 
-    </dl>
+<%--<div class="card-columns" style="width: 150rem;">--%>
+    <%--<article class="card border-warning">--%>
+        <%--<div class="card-header">How do I create an ad?</div>--%>
+    <%--<div class="card-body">--%>
+        <%--Once you are registered, you can click on Create to create an ad. You'll have a title, a description, and will be able to select the category(ies) that best fit your item or service.--%>
+    <%--</div>--%>
+<%--</div>--%>
+
+<%--<div class="card-columns"  style="width: 150rem;">--%>
+    <%--<article class="card border-warning">--%>
+        <%--<div class="card-header">What forms of payment are accepted?</div>--%>
+    <%--<div class="card-body">--%>
+        <%--It is up to the seller to determine what payment methods are accepted, although we recommend that all sellers speak with Lucy since she has the most business experience.--%>
+    <%--</div>--%>
+<%--</div>--%>
+
+<%--<div class="card-columns"  style="width: 150rem;">--%>
+    <%--<article class="card border-warning">--%>
+        <%--<div class="card-header">How much does it cost to post an ad?</div>--%>
+        <%--<div class="card-body">--%>
+            <%--It is up to the seller to determine what payment methods are accepted, although we recommend that all sellers speak with Lucy since she has the most business experience.--%>
+        <%--</div>--%>
+<%--</div>--%>
+
+<%--<div class="card-columns"  style="width: 150rem;">--%>
+    <%--<article class="card border-warning">--%>
+        <%--<div class="card-header">How will I know if an item is still available?</div>--%>
+        <%--<div class="card-body">--%>
+            <%--Once an item or service is no longer available, we ask that the seller DELETE the post from Adlister to avoid any confusion.--%>
+        <%--</div>--%>
+<%--</div>--%>
+
+<%--<div class="card-columns"  style="width: 150rem;">--%>
+    <%--<article class="card border-warning">--%>
+        <%--<div class="card-header">What are the limitations to what I can sell?</div>--%>
+        <%--<div class="card-body">--%>
+            <%--Categories have been created to cover a broad variety of goods and services to sell. Currently, Linus' blanket is the only item that cannot be listed for sale.--%>
+        <%--</div>--%>
+<%--</div>--%>
+
+<%--<div class="card-columns"  style="width: 150rem;">--%>
+    <%--<article class="card border-warning">--%>
+        <%--<div class="card-header">What if I make a mistake when I post an ad?</div>--%>
+        <%--<div class="card-body">--%>
+            <%--Once you post an ad, you will be able to edit the ad if you see that you made a mistake. Users are also able to delete an ad, and should delete the ad once the item or service is no longer available.--%>
+        <%--</div>--%>
+<%--</div>--%>
+
+<%--<div class="card-columns"  style="width: 150rem;">--%>
+    <%--<article class="card border-warning">--%>
+        <%--<div class="card-header">Can I meet Snoopy?</div>--%>
+        <%--<div class="card-body">--%>
+            <%--Snoopy is currently working on his great American novel, and may not be available for photo ops or autographs. An exception might be made for any buyer or seller that brings a full bowl of dog food, however.--%>
+        <%--</div>--%>
+<%--</div>--%>
+
 </div>
 
-<script
-        src="https://code.jquery.com/jquery-3.3.1.slim.js"
-        integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
-        crossorigin="anonymous">
-</script>
-
-<script>
-    $('dd').addClass('invisible');
-
-    $('#toggleButton').click(function() {
-        $('dd').toggleClass('invisible');
-    });
-
-</script>
 
 </body>
 </html>
