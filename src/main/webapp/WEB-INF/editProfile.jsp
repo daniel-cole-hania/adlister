@@ -22,8 +22,9 @@
                 <input id="email" name="email" class="form-control" type="text" value="${user.email}">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password" value="${user.password}">
+                <label for="password">Password <br>(if you don't want to change your password enter and confirm your current password)</label>
+                <input id="password" name="password" class="form-control" type="password" value="">
+                <%--<input id="password" name="password" class="form-control" type="password" value="${user.password}">--%>
             </div>
             <div class="form-group">
                 <label for="confirm_password">Confirm Password</label>
