@@ -56,18 +56,15 @@ public class CreateAdServlet extends HttpServlet {
             return;
         }
 
-        System.out.println("ad created by: " + user.getId() + ", " + user.getUsername());
         Ad ad = new Ad(
                 user.getId(),
                 title,
                 description
         );
 
-
-
-
         MySQLCategoryAdLinkDao mySQLCategoryAdLinkDao = new MySQLCategoryAdLinkDao(new Config());
 
+        //if no categories selected kicks user back to create page
         String categories = request.getParameter("id");
         if (categories == null) {
             request.getSession().setAttribute("message", "You block head, Your ad needs at least <span class=\"normie\">1</span> category.");
@@ -78,8 +75,11 @@ public class CreateAdServlet extends HttpServlet {
 //        Long categoryID = Long.parseLong(request.getParameter("id"));
         String[] categoryIDS = request.getParameterValues("id");
 
-
+        //inserts ad into ad database
+        System.out.println("ad created by: " + user.getId() + ", " + user.getUsername());
         ad.setId(DaoFactory.getAdsDao().insert(ad));
+
+        //for each category selected adds row to category ad table
         for (int i = 0; i < categoryIDS.length; i++) {
         Category currCat = DaoFactory.getCategoriesDao().findByCategoryID(Long.parseLong(categoryIDS[i]));
 
