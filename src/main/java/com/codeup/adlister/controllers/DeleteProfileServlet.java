@@ -22,9 +22,9 @@ public class DeleteProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Long id = Long.parseLong(request.getParameter("id"));
-        System.out.println(request.getParameter("id"));
-        System.out.println(id);
+        User currUser = (User) request.getSession().getAttribute("user");
+        Long id = currUser.getId();
+
         DaoFactory.getUsersDao().deleteUser(id);
         request.getSession().removeAttribute("user");
         request.getSession().invalidate();

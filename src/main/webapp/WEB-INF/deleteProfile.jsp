@@ -13,7 +13,7 @@
     <div id="content">
         <h3>Are you sure you want to delete your profile?</h3>
         <form action="/deleteProfile" method="POST">
-            <input type="submit" class="btn btn-primary btn-lg active" value="Delete my profile">
+            <input type="submit" class="btn btn-primary btn-lg active" value="Delete my profile" name="">
         </form>
     </div>
 </div>
