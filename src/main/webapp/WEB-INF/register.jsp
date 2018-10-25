@@ -42,6 +42,8 @@
                 </form>
             </div>
         </article>
+
+        <%--<img sr--%>
     </main>
 </body>
 <%

@@ -11,10 +11,10 @@
 
 <h1 class="page-heading text-warning text-center">Edit Your Profile</h1>
 
-<div class="container row mx-auto">
+<div class="container mx-auto">
     <%--section to display user info--%>
-    <section class="col">
-        <article class="card border-warning">
+    <section class="mx-auto">
+        <article class="card border-warning w-75 mx-auto">
             <div class="card-body">
                 <h2 class="card-title text-success">Enter any details you want to change:</h2>
                 <h5 class="card-title">You will need to enter and confirm your old or new password.</h5>
