@@ -23,6 +23,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/ads/create">Create an Ad</a>
                 </li>
+
             </c:if>
         </ul>
         <ul class="navbar-nav ml-auto my-auto">

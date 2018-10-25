@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Ads"/>
+        <jsp:param name="title" value="All Ads on Grief Saver"/>
     </jsp:include>
 </head>
 <body>
@@ -21,14 +21,14 @@
                 <p class="card-text normie">${ad.description}</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">${ad.categories}</li>
+                <li class="list-group-item text-danger">${ad.categories}</li>
 
             </ul>
         </article>
 
         <c:if test="${sessionScope.user.id == ad.userId}">
     <%--form for editing ad--%>
-        <article class="card border-warning my-2">
+        <article class="card border-warning my-3">
             <div class="card-body">
                 <h2 class="card-title text-success">Edit:</h2>
                 <form action="/ads/show?id=${ad.id}" method="POST">
@@ -41,8 +41,8 @@
                         <textarea id="description" name="description" class="form-control normie">${ad.description}</textarea>
                     </div>
 
-                    <input type="submit" class="btn btn-warning" name="submit" value="Save">
-                    <input type="submit" class="btn btn-warning" name="submit" value="Delete">
+                    <input type="submit" class="btn btn-warning btn-lg nuts" name="submit" value="Save">
+                    <input type="submit" class="btn btn-warning btn-lg nuts" name="submit" value="Delete">
 
                     <input type="hidden" name="id" value="${ad.id}">
                 </form>
@@ -58,8 +58,10 @@
         <article class="card border-warning">
             <div class="card-body">
                 <h2 class="card-title text-success">Contact:</h2>
-                <h3 class="card-title"><c:out value="${user.username}"/></h3>
-
+                <h3 class="card-title d-inline"><c:out value="${user.username}"/></h3>
+                <c:if test="${sessionScope.user.id == ad.userId}">
+                    <h4 class="d-inline"><span class="text-danger">(you)</span></h4>
+                </c:if>
                 <p class="card-text normie"><c:out value="${user.email}"/></p>
             </div>
         </article>
