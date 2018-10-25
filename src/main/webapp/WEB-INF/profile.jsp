@@ -9,24 +9,28 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
-<div class="container">
-    <div class="row">
-        <div class="col-8">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
+<h1 class="page-heading text-warning text-center">Welcome, ${sessionScope.user.username}!</h1>
 
-        <c:forEach var="ad" items="${ads}">
-            <div>
-                <h2><a href="/ads/show?id=${ad.id}">${ad.title}</a></h2>
-            </div>
-        </c:forEach>
-        </div>
-        
-    </div>
-
-    <a href="editProfile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Profile</a>
+<main class="container mx-auto">
+    <article class="card border-warning w-75 mx-auto">
+        <div class="card-body">
+            <h2 class="card-title text-success">Your Info:</h2>
+            <p class="card-text normie">${sessionScope.user.email}</p>
+              <a href="editProfile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Profile</a>
     <a href="deleteProfile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete Profile</a>
-
-</div>
+        </div>
+    </article>
+    <article class="card border-warning w-75 mx-auto mt-3">
+        <div class="card-body">
+            <h2 class="card-title text-success">Your Ads:</h2>
+            <c:forEach var="ad" items="${ads}">
+                    <h4 class="card-title">
+                        <a class="text-danger" href="/ads/show?id=${ad.id}">${ad.title}</a>
+                    </h4>
+            </c:forEach>
+        </div>
+    </article>
+</main>
 
 </body>
 </html>

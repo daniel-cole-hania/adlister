@@ -14,6 +14,11 @@ body {
 }
 
 .page-heading {
+    font-size: 400%;
+    -webkit-text-stroke: 2px black;
+}
+
+.index-heading {
     font-size: 500%;
     -webkit-text-stroke: 2px black;
 }
@@ -36,4 +41,14 @@ article {
 
 input {
     font-family: 'Nunito', sans-serif;
+}
+
+.nuts {
+    font-family: 'Peanuts';
+}
+
+textarea {
+    resize: none;
+    font-family: 'Nunito', sans-serif;
+
 }

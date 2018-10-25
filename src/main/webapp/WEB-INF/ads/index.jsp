@@ -35,7 +35,7 @@
                     <p class="card-text normie">${fn:substring(ad.description, 0, 50)}...</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item categories">${ad.categories}</li>
+                    <li class="list-group-item categories text-danger">${ad.categories}</li>
 
                 </ul>
             </article>
