@@ -1,6 +1,7 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +23,8 @@ public class DeleteProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Long id = Long.parseLong(request.getParameter("id"));
+        System.out.println(request.getParameter("id"));
+        System.out.println(id);
         DaoFactory.getUsersDao().deleteUser(id);
         request.getSession().removeAttribute("user");
         request.getSession().invalidate();

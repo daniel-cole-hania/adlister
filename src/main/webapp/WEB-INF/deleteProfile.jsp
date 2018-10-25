@@ -12,9 +12,8 @@
 <div class="container">
     <div id="content">
         <h3>Are you sure you want to delete your profile?</h3>
-        <form action="/editProfile" method="POST">
-            
-            <input type="submit" class="btn btn-primary btn-block">
+        <form action="/deleteProfile" method="POST">
+            <input type="submit" class="btn btn-primary btn-lg active" value="Delete my profile">
         </form>
     </div>
 </div>
