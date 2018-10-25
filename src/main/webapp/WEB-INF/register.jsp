@@ -24,11 +24,11 @@
                 <form action="/register" method="post">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input id="username" name="username" class="form-control" type="text">
+                        <input id="username" name="username" class="form-control" type="text" value="${sessionScope.username}">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input id="email" name="email" class="form-control" type="text">
+                        <input id="email" name="email" class="form-control" type="text" value="${sessionScope.email}">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -42,9 +42,13 @@
                 </form>
             </div>
         </article>
+
+        <%--<img sr--%>
     </main>
 </body>
 <%
     session.removeAttribute("message");
+    session.removeAttribute("username");
+    session.removeAttribute("email");
 %>
 </html>

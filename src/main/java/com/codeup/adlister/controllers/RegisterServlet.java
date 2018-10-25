@@ -22,15 +22,18 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
+
         // validate input
         if (username.isEmpty()) {
             request.getSession().setAttribute("message", "Isn't he the cutest thing? Please enter a username.");
+            request.getSession().setAttribute("email", email);
             response.sendRedirect("/register");
             return;
         }
 
         if (email.isEmpty()) {
             request.getSession().setAttribute("message", "It's people I can't stand! You need an email.");
+            request.getSession().setAttribute("username", username);
             response.sendRedirect("/register");
             return;
         }
