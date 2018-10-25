@@ -21,7 +21,7 @@
                 <a type="button" href="/ads" class="btn btn-warning mx-auto my-2"><h1 class="m-3">View Ads</h1></a>
                 <a type="button" href="/login" class="btn btn-warning mx-auto my-2"><h1 class="m-3">Login</h1></a>
                 <a type="button" href="/register" class="btn btn-warning mx-auto my-2"><h1 class="m-3">Register</h1></a>
-                <a type="button" href="" class="btn btn-warning mx-auto my-2 disabled"><h1 class="m-3">FAQ</h1></a>
+                <a type="button" href="/faq" class="btn btn-warning mx-auto my-2"><h1 class="m-3">FAQ</h1></a>
             </section>
 
             <img src="css/peanuts-gang.gif" alt="peanuts gang!">

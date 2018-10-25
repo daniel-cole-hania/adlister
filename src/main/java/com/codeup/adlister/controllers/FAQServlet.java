@@ -13,28 +13,14 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-import static java.lang.Long.parseLong;
 
-@WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
-public class ViewProfileServlet extends HttpServlet {
+@WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/faq")
+public class FAQServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        session.setAttribute("currentPage", "/profile");
+        session.setAttribute("currentPage", "/faq");
 
-        User currUser = (User) request.getSession().getAttribute("user");
-
-        Long userId = currUser.getId();
-
-//        if (userId != null) {
-        List<Ad> ads = DaoFactory.getAdsDao().findAllAdsUserId(userId);
-        request.setAttribute("ads", ads);
-        request.setAttribute("user_id", userId);
-//        }
-
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/faq.jsp").forward(request, response);
     }
-
-
-//
 }
