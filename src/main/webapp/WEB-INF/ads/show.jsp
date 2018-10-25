@@ -21,7 +21,7 @@
                 <p class="card-text normie">${ad.description}</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">${ad.categories}</li>
+                <li class="list-group-item text-danger">${ad.categories}</li>
 
             </ul>
         </article>
