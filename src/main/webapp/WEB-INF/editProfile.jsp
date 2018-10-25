@@ -9,6 +9,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
+
 <h1 class="page-heading text-warning text-center">Edit Your Profile</h1>
 
 <div class="container mx-auto">
@@ -31,7 +32,7 @@
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input id="password" name="password" class="form-control" type="password"
-                               value="${user.password}">
+                               value="">
                     </div>
                     <div class="form-group">
                         <label for="confirm_password">Confirm Password</label>
