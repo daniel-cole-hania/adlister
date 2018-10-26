@@ -19,6 +19,21 @@
         </c:when>
         <c:otherwise>
             <h1 class="page-heading text-warning text-center">All listed ads:</h1>
+
+            <div class="text-center">
+                <form action="/ads">
+                    <div class="form-check form-check-inline">
+                        <c:forEach items="${categories}" var="category">
+                            <input class="form-check-input" type="radio" name="id" id="inlineRadio1"
+                                   value="${category.id}">
+                            <label class="form-check-label" for="inlineRadio1"><c:out value="${category.name}"/></label>
+                        </c:forEach>
+                    </div>
+
+                    <br>
+                    <input type="submit" class="btn btn btn-primary" value="Show ads in this category">
+                </form>
+            </div>
         </c:otherwise>
     </c:choose>
 
@@ -28,7 +43,7 @@
                 <div class="card-body">
                     <h4 class="card-title text-center">
                         <a class="text-success" href="/ads/show?id=${ad.id}">
-                            ${ad.title}
+                                ${ad.title}
                         </a>
                     </h4>
                     <h6 class="card-subtitle mb-2 text-muted normie">${ad.dateCreated}</h6>
@@ -36,7 +51,6 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item categories">${ad.categories}</li>
-
                 </ul>
             </article>
         </c:forEach>
