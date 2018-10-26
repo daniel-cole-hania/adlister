@@ -8,6 +8,9 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+    <% session.setAttribute( "currentPage", "/"); %>
+
     <div class="container text-center">
         <h1 class="text-warning index-heading">Grief Saver</h1>
         <h3>The future of connecting people to what they want.</h3>

@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (request.getSession().getAttribute("user") != null) {
-            response.sendRedirect("currentPage");
+            response.sendRedirect((String)session.getAttribute("currentPage"));
             return;
         }
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
