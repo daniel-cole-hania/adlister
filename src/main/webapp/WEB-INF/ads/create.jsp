@@ -9,6 +9,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
+
 <h1 class="page-heading text-warning text-center">Create a new Ad:</h1>
 
 <main class="container mx-auto">
@@ -51,6 +52,7 @@
 
 
 </main>
+
 </body>
 <%
     session.removeAttribute("message");

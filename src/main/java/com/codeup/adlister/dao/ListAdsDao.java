@@ -72,5 +72,6 @@ public class ListAdsDao implements Ads {
     public void delete(Long id) {
 
     }
+    public List<Ad> findAllAdsByCategory(Long category_id){return null;}
 
 }

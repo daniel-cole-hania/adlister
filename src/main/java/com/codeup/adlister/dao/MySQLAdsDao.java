@@ -156,14 +156,32 @@ public class MySQLAdsDao implements Ads {
     }
 
 
+    //finding ads by category id for profile page
+    public List<Ad> findAllAdsByCategory(Long category_id) {
+        try {
+            String findAds = "select * from ads join category_ad on ads.id=category_ad.ad_id where category_ad.category_id=?";
+
+            PreparedStatement stmt = connection.prepareStatement(findAds);
+            stmt.setLong(1, category_id);
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ads by this username", e);
+        }
+    }
+
+
     //private utility classes for formatting ads from result sets
     private Ad extractAd(ResultSet rs) throws SQLException {
         Ad newAd = new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description"),
-            rs.getString("date_created")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description"),
+                rs.getString("date_created")
         );
         newAd.setCategories(DaoFactory.getMySQLCategoryAdLinkDao().findCategories(newAd));
         return newAd;

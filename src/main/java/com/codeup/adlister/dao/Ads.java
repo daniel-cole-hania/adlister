@@ -22,4 +22,5 @@ public interface Ads {
 
     List<Ad> findAllAdsByKeyword(String keyWord);
     List<Ad>findAllAdsUserId(Long userId);
+    List<Ad> findAllAdsByCategory(Long category_id);
 }
