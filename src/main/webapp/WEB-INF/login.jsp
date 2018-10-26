@@ -4,7 +4,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Adlister ~ Login"/>
+        <jsp:param name="title" value="Login on Grief Saver"/>
     </jsp:include>
 </head>
 <body>
@@ -12,8 +12,8 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <h1 class="page-heading text-warning text-center">Log In</h1>
 
-<main class="container mx-auto">
-    <article class="card border-warning w-75 mx-auto">
+<main class="container mx-auto row">
+    <article class="card border-warning w-75 mx-auto col-8">
         <div class="card-body">
             <h2 class="card-title text-success">Please enter your username and password:</h2>
             <h5 class="card-title">If you don't have an account, you can register
@@ -37,6 +37,9 @@
             </form>
         </div>
     </article>
+    <aside class="col-8 col-lg-3 mx-auto">
+    <img src="../css/marcie.gif" width="80%" alt="marcie's checking you...">
+    </aside>
 </main>
 </body>
 <%

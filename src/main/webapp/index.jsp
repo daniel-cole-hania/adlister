@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Home - Adlister" />
+        <jsp:param name="title" value="Home on Grief Saver" />
     </jsp:include>
 </head>
 <body>

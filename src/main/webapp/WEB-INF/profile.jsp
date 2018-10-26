@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Your Profile"/>
+        <jsp:param name="title" value="Your Profile on Grief Saver"/>
     </jsp:include>
 </head>
 <body>
@@ -11,8 +11,8 @@
 
 <h1 class="page-heading text-warning text-center">Welcome, ${sessionScope.user.username}!</h1>
 
-<main class="container mx-auto">
-    <article class="card border-warning w-75 mx-auto">
+<main class="container mx-auto row ">
+    <article class="card border-warning w-75 col-9 mx-auto">
         <div class="card-body">
             <h2 class="card-title text-success">Your Info:</h2>
             <h6 class="d-inline">Username: </h6><p class="card-text normie">${sessionScope.user.username}</p>
@@ -33,6 +33,10 @@
             </c:forEach>
         </div>
     </article>
+
+    <aside>
+        <img src="../css/Charlie_Brown.png" alt="charlie">
+    </aside>
 </main>
 
 </body>

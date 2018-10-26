@@ -12,11 +12,12 @@
 
 <h1 class="page-heading text-warning text-center">Delete Your Profile</h1>
 
-<main class="container mx-auto">
-    <article class="card border-warning w-75 mx-auto">
+<main class="container mx-auto row">
+
+    <article class="card border-warning w-75 col-9 mx-auto">
         <div class="card-body">
-            <h2 class="card-title text-success">Are you sure you want to leave forever?</h2>
-            <h5 class="card-title normie mb-4">Absence makes the heart grow fonder, but it sure makes the rest of you
+            <h2 class="card-title text-success pt-1">Are you sure you want to leave forever?</h2>
+            <h5 class="card-title normie mb-5 pb-4">Absence makes the heart grow fonder, but it sure makes the rest of you
                 lonely.</h5>
             <form action="/deleteProfile" method="POST" class="d-inline">
                 <input type="submit" class="btn btn-warning btn-lg nuts" value="Delete my profile" name="">
@@ -26,6 +27,11 @@
             </form>
         </div>
     </article>
+
+    <aside class="col-3">
+        <img src="../css/Linus_van_Pelt.gif">
+    </aside>
+
 </main>
 </body>
 </html>

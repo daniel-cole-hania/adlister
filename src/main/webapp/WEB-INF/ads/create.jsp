@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Adlister ~ Create an Ad"/>
+        <jsp:param name="title" value="Create an Ad on Grief Saver"/>
     </jsp:include>
 </head>
 <body>
@@ -12,8 +12,8 @@
 
 <h1 class="page-heading text-warning text-center">Create a new Ad:</h1>
 
-<main class="container mx-auto">
-    <article class="card border-warning w-75 mx-auto">
+<main class="container mx-auto row">
+    <article class="card border-warning w-75 mx-auto col-7">
         <div class="card-body">
             <h2 class="card-title text-success">Please enter the ads details:</h2>
             <h5 class="card-title">Your ad will need a title, description, and categories.</h5>
@@ -48,7 +48,8 @@
             </form>
         </div>
     </article>
-    </div>
+
+    <aside class="col-4 mt-5 pt-5 ml-1"><img class="mt-5" src="../../css/Schroeder_Piano.png" alt="take a note of this" width="95%"></aside>
 
 
 </main>

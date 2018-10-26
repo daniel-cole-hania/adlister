@@ -5,7 +5,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Adlister ~ All Ads"/>
+        <jsp:param name="title" value="All Ads on Grief Saver"/>
     </jsp:include>
 </head>
 <body>
@@ -24,19 +24,22 @@
                 <form action="/ads">
                     <div class="form-check form-check-inline">
                         <c:forEach items="${categories}" var="category">
-                            <input class="form-check-input" type="radio" name="id" id="inlineRadio1"
+                            <input class="form-check-input" type="radio" name="id" id="${category}"
                                    value="${category.id}">
-                            <label class="form-check-label" for="inlineRadio1"><c:out value="${category.name}"/></label>
+                            <label class="form-check-label normie mr-1" for="${category}"> <c:out value="${category.name}"/></label>
                         </c:forEach>
                     </div>
 
                     <br>
-                    <input type="submit" class="btn btn btn-primary" value="Show ads in this category">
+                    <input type="submit" class="btn btn btn-warning nuts" value="Show ads in this category">
                 </form>
             </div>
         </c:otherwise>
     </c:choose>
 
+    <aside id="lucy">
+        <img src="../../css/Lucy_van_Pelt.png" alt="Lucy">
+    </aside>
     <main class="card-columns">
         <c:forEach var="ad" items="${ads}">
             <article class="card border-warning">
@@ -56,6 +59,9 @@
             </article>
         </c:forEach>
     </main>
+    <aside id="sally">
+    <img src="../../css/peanut-vector-cute-6.gif" alt="Sally" width="75%">
+    </aside>
 </div>
 </body>
 </html>

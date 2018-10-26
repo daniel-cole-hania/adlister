@@ -10,7 +10,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="AdLister ~ FAQ" />
+        <jsp:param name="title" value="FAQ on Grief Saver" />
     </jsp:include>
 </head>
 <body>

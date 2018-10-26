@@ -52,3 +52,20 @@ textarea {
     font-family: 'Nunito', sans-serif;
 
 }
+
+
+#lucy {
+    position: fixed;
+    left: 10px;
+    top: 30px;
+}
+
+#sally {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+nav {
+    z-index:1000;
+}
